@@ -23,6 +23,23 @@ router.put('/item/:id', uploadMultiple, adminController.editItem)
 router.delete('/item/:id/delete', adminController.deleteItem)
 router.get('/item/show-image/:id', adminController.viewImage)
 
+//CRUD Detail Item (Features & Activity)
+router.get('/item/detail/:itemId', adminController.viewDetailItem)
+router.post('/item/add/feature', upload, adminController.addFeature)
+router.put('/item/update/feature', upload, adminController.editFeature)
+router.delete(
+  '/item/:itemId/feature/:id',
+  upload,
+  adminController.deleteFeature
+)
+router.post('/item/add/activity', upload, adminController.addActivity)
+router.put('/item/update/activity', upload, adminController.editActivity)
+router.delete(
+  '/item/:itemId/activity/:id',
+  upload,
+  adminController.deleteActivity
+)
+
 router.get('/booking', adminController.viewBooking)
 
 module.exports = router
