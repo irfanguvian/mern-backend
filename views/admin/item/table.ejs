@@ -23,7 +23,6 @@
               <th>Title</th>
               <th>Price</th>
               <th>Country</th>
-              <th>Category</th>
               <th>City</th>
               <th>Action</th>
             </tr>
@@ -36,7 +35,6 @@
               <td><%= item.price%></td>
               <td><%= item.city %></td>
               <td><%= item.country%></td>
-              <td><%= item.categoryId.name %></td>
               <td>
                 <form
                   action="/admin/item/<%= item.id %>/delete?_method=DELETE"

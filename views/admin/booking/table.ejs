@@ -22,6 +22,28 @@
             <th>Action</th>
           </tr>
         </thead>
+        <tbody>
+          <%booking.map((item,index)=>{ %>
+          <tr>
+            <td><%= index +1 %></td>
+            <td>
+              <%= item.bookingStartDate.toLocaleString().split(',')[0] %> s/d
+              <%= item.bookingEndDate.toLocaleString().split(',')[0] %>
+            </td>
+            <td><%= item.itemId.title %></td>
+            <td><%= item.memberId.firstName %></td>
+            <td><%= item.bankId.nameBank %></td>
+            <td><%= item.payments.status %></td>
+            <td>
+              <a
+                href="/admin/booking/<%= item._id %> "
+                class="btn btn-success btn-circle btn-sm"
+                ><i class="fas fa-eye"></i
+              ></a>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
       </table>
     </div>
   </div>

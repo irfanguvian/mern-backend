@@ -1,8 +1,12 @@
 const router = require('express').Router()
 const adminController = require('../controllers/adminController')
 const { upload, uploadMultiple } = require('../middleware/multer')
-router.get('/dashboard', adminController.viewDashboard)
-
+const auth = require('../middleware/Auth.js')
+router.get('/dashboard', auth, adminController.viewDashboard)
+router.get('/signin', adminController.viewSignIn)
+router.post('/signin', adminController.actionSignIn)
+router.get('/logout', adminController.actionLogout)
+router.use(auth)
 //Crud Category
 router.get('/category', adminController.viewCategory)
 router.post('/category', adminController.addCategory)
@@ -41,5 +45,8 @@ router.delete(
 )
 
 router.get('/booking', adminController.viewBooking)
+router.get('/booking/:id', adminController.viewDetailBooking)
+router.put('/booking/:id/confirm', adminController.actionConfirmation)
+router.put('/booking/:id/reject', adminController.actionReject)
 
 module.exports = router
