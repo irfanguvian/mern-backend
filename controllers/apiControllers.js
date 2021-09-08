@@ -1,12 +1,9 @@
 const Category = require("../models/Category");
 const Bank = require("../models/Bank");
 const Item = require("../models/Item");
-const Image = require("../models/Image");
-const Feature = require("../models/Feature");
 const Activity = require("../models/Activity");
 const Booking = require("../models/Booking");
 const Member = require("../models/Member");
-const Users = require("../models/Users");
 
 module.exports = {
   landingpage: async (req, res) => {
@@ -170,6 +167,6 @@ module.exports = {
       },
     };
     const booking = await Booking.create(newBooking);
-    res.status(200).json({ message: "Success Booking", booking });
+    res.status(201).json({ message: "Success Booking", booking });
   },
 };
